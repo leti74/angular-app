@@ -1,0 +1,33 @@
+<div class="login-wrapper">
+    <div class="login-card">
+        <div class="logo-area">
+            <h1>GoREST Portal</h1>
+            <p class="subtitle">Log in with your personal token</p>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <div class="form-group">
+                <label for="token">Token:</label>
+                <input id="token" type="text" formControlName="token" placeholder="Enter your GoREST token"
+                    [class.error]="errorMsg" />
+
+
+                @if(errorMsg){
+                <p class="error-text">{{ errorMsg }}</p>
+                }
+            </div>
+
+            <button type="submit" class="btn-primary" [disabled]="loginForm.invalid">
+                Accedi
+            </button>
+        </form>
+
+        <div class="token-info">
+            <p>Don't you have a token?</p>
+            <a href="https://gorest.co.in/consumer/login" target="_blank">
+                Get your token on GoREST →
+            </a>
+        </div>
+    </div>
+
+</div>
